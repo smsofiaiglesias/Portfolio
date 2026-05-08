@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sofía — Social Media Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3ED;
+    --cream-mid: #EDE7DC;
+    --cream-dark: #D9CFC2;
+    --ink: #2A2420;
+    --ink-mid: #5C4F45;
+    --ink-light: #9C8E84;
+    --accent: #8B6652;
+    --accent-light: #C4A08A;
+    --white: #FDFBF8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background-color: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(247, 243, 237, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--cream) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    max-width: 38ch;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-mid);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border: 1px solid var(--cream-dark);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-scroll {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--ink-light);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-light);
+  }
+
+  /* HERO PHOTO SIDE */
+  .hero-photo {
+    position: relative;
+    background: var(--cream-mid);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--ink-light);
+  }
+
+  .photo-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px dashed var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--accent-light);
+  }
+
+  .photo-note {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 20ch;
+  }
+
+  .hero-photo-tag {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1rem;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tag-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #5C9E5C;
+    flex-shrink: 0;
+  }
+
+  .tag-text {
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    line-height: 1.4;
+  }
+
+  .tag-text strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--ink);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee {
+    display: inline-block;
+    animation: marquee 22s linear infinite;
+  }
+
+  .marquee span {
+    color: var(--cream-mid);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-right: 3rem;
+  }
+
+  .marquee span em {
+    color: var(--accent-light);
+    font-style: normal;
+    margin-right: 3rem;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 5rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ABOUT — NEW SECTION */
+  .about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 420px;
+    position: relative;
+  }
+
+  .about-quote {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .about-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-mid);
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2rem;
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .stat-card:hover { border-color: var(--accent-light); transform: translateY(-2px); }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  .stat-client {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 0.75rem;
+  }
+
+  /* CASES */
+  .cases { background: var(--cream); }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .case-card:hover { border-color: var(--accent-light); transform: translateY(-3px); }
+
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-name {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .case-category {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-tag {
+    font-size: 0.68rem;
+    background: var(--cream);
+    color: var(--ink-mid);
+    padding: 0.25rem 0.7rem;
+    border-radius: 1rem;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-val {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .metric-key {
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    line-height: 1.4;
+    margin-top: 0.2rem;
+  }
+
+  /* SERVICES */
+  .services { background: var(--white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    background: var(--cream);
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent-light);
+    background: var(--white);
+    transform: translateY(-3px);
+  }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+
+  .service-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .service-list li {
+    font-size: 0.8rem;
+    color: var(--ink-mid);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .service-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-light);
+  }
+
+  .service-price {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 1rem;
+    margin-top: auto;
+  }
+
+  /* WHY ME */
+  .why { background: var(--cream); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .why-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .why-card:hover { border-color: var(--accent-light); }
+
+  .why-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .why-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .why-body {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--ink);
+    text-align: center;
+    padding: 5rem;
+  }
+
+  .cta-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .cta-title em { font-style: italic; color: var(--accent-light); }
+
+  .cta-sub {
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    margin-bottom: 2.5rem;
+    max-width: 45ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  .btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-light:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+  .availability {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-light);
+  }
+
+  .avail-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #7EC87E;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--cream-mid);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 5rem 2rem 2rem; }
+    .hero-photo { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .cases-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+    .cta-section { padding: 3.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+
+  <ul class="nav-links">
+    <li><a href="#work">Trabajos</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#contact" class="nav-cta">Hablemos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Community Manager · Estrategia Digital · Santa Fe, AR</p>
+    <h1 class="hero-title">Contenido que genera<br/><em>resultados reales.</em></h1>
+    <p class="hero-sub">Trabajo con pocos clientes y con foco total en cada marca. Sin promesas vacías — solo métricas que importan.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Hablemos →</a>
+      <a href="#work" class="btn-ghost">Ver trabajos</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <img src="sofia_hero.png" style="width:85%;max-width:420px;object-fit:contain;object-position:bottom;align-self:flex-end;margin:0 auto;filter:drop-shadow(0 8px 32px rgba(139,102,82,0.10));">
+    <div class="hero-photo-tag">
+      <div class="tag-dot"></div>
+      <div class="tag-text">
+        <strong>Disponibilidad limitada</strong>
+        Actualmente con 1 lugar disponible
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Instagram Strategy</span><em>✦</em>
+    <span>Reels & Video</span><em>✦</em>
+    <span>Copywriting</span><em>✦</em>
+    <span>Diseño Gráfico</span><em>✦</em>
+    <span>Lanzamientos</span><em>✦</em>
+    <span>Panel Profesional</span><em>✦</em>
+    <span>Contenido Orgánico</span><em>✦</em>
+    <span>Identidad Visual</span><em>✦</em>
+    <span>Instagram Strategy</span><em>✦</em>
+    <span>Reels & Video</span><em>✦</em>
+    <span>Copywriting</span><em>✦</em>
+    <span>Diseño Gráfico</span><em>✦</em>
+    <span>Lanzamientos</span><em>✦</em>
+    <span>Panel Profesional</span><em>✦</em>
+    <span>Contenido Orgánico</span><em>✦</em>
+    <span>Identidad Visual</span><em>✦</em>
+  </div>
+</div>
+
+<!-- ABOUT ME — NUEVA SECCIÓN -->
+<section class="about" id="about">
+  <div class="about-photo">
+    <img src="sofia_about.png" style="width:100%;max-width:460px;object-fit:contain;display:block;margin:0 auto;">
+  </div>
+  <div class="about-content">
+    <p class="section-label">Sobre mí</p>
+    <h2 class="section-title">Hola, soy Sofía —<br/><em>la que hace el trabajo.</em></h2>
+    <p class="about-quote">"Sin agencias, sin intermediarios."</p>
+    <p class="about-body">
+      Soy community manager y creadora de contenido basada en Santa Fe, Argentina. Me especializo en Instagram — estrategia, diseño, video y copy — para marcas que quieren crecer de verdad.<br/><br/>
+      Trabajo con pocos clientes a la vez porque creo en el foco total. Cuando te digo que tu cuenta es mi prioridad, lo es de verdad.
+    </p>
+    <div class="about-chips">
+      <span class="chip">Deporte</span>
+      <span class="chip">Wellness</span>
+      <span class="chip">Lifestyle</span>
+      <span class="chip">iPhone 13 shooter</span>
+      <span class="chip">Santa Fe, ARG</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="work" style="background:var(--cream);">
+  <p class="section-label">01 — Resultados</p>
+  <h2 class="section-title">Números que<br/><em>hablan solos.</em></h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">114k</div>
+      <div class="stat-label">Visualizaciones en 30 días</div>
+      <div class="stat-client">Club Regatas · abril 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">35k</div>
+      <div class="stat-label">Mejor reel del mes</div>
+      <div class="stat-client">Club Regatas · abril 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6.3k</div>
+      <div class="stat-label">Visualizaciones en 30 días</div>
+      <div class="stat-client">Kairós Pilates · abril 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">551</div>
+      <div class="stat-label">Likes en un solo post</div>
+      <div class="stat-client">45 shares · 13 saves</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE ESTUDIO -->
+<section class="cases">
+  <p class="section-label">02 — Casos de estudio</p>
+  <h2 class="section-title">Clientes reales,<br/><em>crecimiento real.</em></h2>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-header">
+        <div>
+          <div class="case-name">Club Regatas Santa Fe</div>
+          <div class="case-category">Deporte · Institución · +100 años de historia</div>
+        </div>
+      </div>
+      <div class="case-tags">
+        <span class="case-tag">Instagram</span>
+        <span class="case-tag">Reels</span>
+        <span class="case-tag">Diseño editorial</span>
+        <span class="case-tag">Copywriting</span>
+        <span class="case-tag">Identidad visual</span>
+      </div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">114k</div><div class="metric-key">Visualiz. 30 días</div></div>
+        <div class="metric"><div class="metric-val">35k</div><div class="metric-key">Mejor reel</div></div>
+        <div class="metric"><div class="metric-val">2.8k</div><div class="metric-key">Seguidores</div></div>
+        <div class="metric"><div class="metric-val">+22%</div><div class="metric-key">Actividad perfil</div></div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div>
+          <div class="case-name">Kairós Pilates Reformer</div>
+          <div class="case-category">Wellness · Studio · Puerto Santa Fe</div>
+        </div>
+      </div>
+      <div class="case-tags">
+        <span class="case-tag">Instagram</span>
+        <span class="case-tag">Reels</span>
+        <span class="case-tag">Stories</span>
+        <span class="case-tag">Estrategia de contenido</span>
+      </div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">6.3k</div><div class="metric-key">Visualiz. 30 días</div></div>
+        <div class="metric"><div class="metric-val">845</div><div class="metric-key">Mejor reel</div></div>
+        <div class="metric"><div class="metric-val">497</div><div class="metric-key">Seguidores</div></div>
+        <div class="metric"><div class="metric-val">+8.5%</div><div class="metric-key">Actividad perfil</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="services">
+  <p class="section-label">03 — Servicios</p>
+  <h2 class="section-title">Lo que puedo<br/><em>hacer por tu marca.</em></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Gestión mensual</div>
+      <p class="service-desc">Me hago cargo de tu Instagram de punta a punta. Estrategia, contenido, publicación y análisis de métricas cada mes.</p>
+      <ul class="service-list">
+        <li>Planificación de contenido mensual</li>
+        <li>Diseño de posts y reels</li>
+        <li>Copywriting y hashtags</li>
+        <li>Informe mensual de métricas</li>
+        <li>Stories estratégicas</li>
+      </ul>
+      <div class="service-price">Precio a consultar</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Lanzamiento de marca</div>
+      <p class="service-desc">Para negocios nuevos o cuentas que necesitan empezar desde cero con una identidad visual y estrategia sólida.</p>
+      <ul class="service-list">
+        <li>Setup y optimización del perfil</li>
+        <li>12 posts diseñados y programados</li>
+        <li>Voz y tono de marca definidos</li>
+        <li>Guía de hashtags del nicho</li>
+        <li>Estrategia de los primeros 30 días</li>
+      </ul>
+      <div class="service-price">Precio a consultar</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Auditoría + estrategia</div>
+      <p class="service-desc">Análisis profundo de tu cuenta actual, tu competencia y tu audiencia. Hoja de ruta concreta para los próximos 90 días.</p>
+      <ul class="service-list">
+        <li>Análisis de métricas actuales</li>
+        <li>Benchmark de competidores</li>
+        <li>Identificación de oportunidades</li>
+        <li>Plan de contenido 90 días</li>
+        <li>Call de presentación incluido</li>
+      </ul>
+      <div class="service-price">Precio a consultar</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Meta Ads</div>
+      <p class="service-desc">Gestión profesional de anuncios en Instagram y Facebook para amplificar el alcance de tu contenido y atraer clientes reales.</p>
+      <ul class="service-list">
+        <li>Configuración y optimización de campañas</li>
+        <li>Segmentación de audiencias</li>
+        <li>Diseño de creatividades para ads</li>
+        <li>Seguimiento y reportes de rendimiento</li>
+        <li>Ajustes semanales según métricas</li>
+      </ul>
+      <div class="service-price">Precio a consultar</div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ YO -->
+<section class="why">
+  <p class="section-label">04 — Por qué trabajar conmigo</p>
+  <h2 class="section-title">Más que<br/><em>posteos bonitos.</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Pocos clientes, máximo foco</div>
+      <p class="why-body">Trabajo con un máximo de 3 marcas a la vez. Tu cuenta no es un número — es mi prioridad. Cada posteo tiene intención, cada métrica tiene seguimiento.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Resultados que se miden</div>
+      <p class="why-body">Nada de vistas infladas o seguidores comprados. Crecimiento real y sostenible — con o sin pauta. Podés ver los números antes de contratarme.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Contenido desde adentro</div>
+      <p class="why-body">Me especializo en nichos de deporte, wellness y lifestyle. Conozco el lenguaje, la audiencia y qué tipo de contenido genera conversión real.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Comunicación directa</div>
+      <p class="why-body">Sin agencias, sin intermediarios. Hablás directo con quien hace el trabajo. Respuesta rápida, decisiones ágiles, transparencia total en el proceso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <p class="cta-eyebrow">Disponibilidad limitada</p>
+  <h2 class="cta-title">¿Tu marca merece<br/><em>más atención?</em></h2>
+  <p class="cta-sub">Trabajo con un máximo de 3 clientes a la vez. Si hay un lugar disponible, contame tu proyecto.</p>
+  <a href="https://wa.me/5493425973663" class="btn-light">Escribirme por WhatsApp →</a>
+  <div class="availability">
+    <div class="avail-dot"></div>
+    <span>Actualmente con 1 lugar disponible</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sofía — Social Media Studio</div>
+  <div class="footer-copy">Santa Fe, Argentina · 2026</div>
+</footer>
+
+</body>
+</html>

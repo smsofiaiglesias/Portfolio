@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sofía Studio — Estrategia, Contenido y Video</title>
+<meta name="description" content="Sofía Studio: estrategia, storytelling y producción de video para marcas y negocios que quieren crecer con contenido que se nota. Con base en Santa Fe, Argentina." />
+<meta name="theme-color" content="#F7F3ED" />
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sofía Studio — Estrategia, Contenido y Video" />
+<meta property="og:description" content="Dirección creativa, storytelling y producción de video para marcas y negocios que quieren crecer con contenido que se nota." />
+<meta property="og:image" content="https://smsofiaiglesias.github.io/Portfolio/sofia_about.png" />
+<meta property="og:url" content="https://smsofiaiglesias.github.io/Portfolio/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232A2420'/%3E%3Ctext x='50' y='67' font-size='54' font-family='Georgia,serif' fill='%23F7F3ED' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3ED;
+    --cream-mid: #EDE7DC;
+    --cream-dark: #D9CFC2;
+    --ink: #2A2420;
+    --ink-mid: #5C4F45;
+    --ink-light: #9C8E84;
+    --accent: #8B6652;
+    --accent-light: #C4A08A;
+    --white: #FDFBF8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: ui-monospace, 'SF Mono', 'IBM Plex Mono', Menlo, Consolas, monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background-color: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* SCROLL PROGRESS — referencia sutil al mundo de edición de video */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 200;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(247, 243, 237, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .nav-brand { display: flex; align-items: baseline; gap: 0.6rem; }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-timecode {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .nav-timecode { display: inline; }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--cream) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    margin: 5px 0;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    max-width: 40ch;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-mid);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border: 1px solid var(--cream-dark);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-scroll {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--ink-light);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-light);
+  }
+
+  /* HERO PHOTO SIDE */
+  .hero-photo {
+    position: relative;
+    background: var(--cream-mid);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .hero-photo-tag {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1rem;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tag-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #5C9E5C;
+    flex-shrink: 0;
+  }
+
+  .tag-text {
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    line-height: 1.4;
+  }
+
+  .tag-text strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--ink);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee {
+    display: inline-block;
+    animation: marquee 26s linear infinite;
+  }
+
+  .marquee span {
+    color: var(--cream-mid);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-right: 3rem;
+  }
+
+  .marquee span em {
+    color: var(--accent-light);
+    font-style: normal;
+    margin-right: 3rem;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 5rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  .section-sub {
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    max-width: 55ch;
+    line-height: 1.6;
+  }
+
+  /* PORTFOLIO — protagonista */
+  .portfolio { background: var(--cream); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 230px;
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .portfolio-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .portfolio-card:hover { border-color: var(--accent-light); transform: translateY(-3px); }
+
+  .portfolio-card.featured { grid-column: span 2; grid-row: span 2; }
+
+  .portfolio-frame {
+    flex: 1;
+    min-height: 100px;
+    background: var(--cream-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+  .portfolio-play {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px dashed var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .portfolio-info { padding: 1.1rem 1.25rem 1.4rem; }
+
+  .portfolio-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0.55rem 0 0.3rem;
+  }
+
+  .portfolio-desc {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 420px;
+    position: relative;
+  }
+
+  .about-quote {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .about-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-mid);
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2rem;
+  }
+
+  /* CÓMO TRABAJO */
+  .how { background: var(--cream); }
+
+  .how-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+    max-width: 640px;
+  }
+
+  .how-step {
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 2.25rem;
+    position: relative;
+  }
+
+  .how-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 52px;
+    bottom: 0;
+    width: 1px;
+    background: var(--cream-dark);
+  }
+
+  .how-num {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--accent);
+    z-index: 1;
+  }
+
+  .how-content { padding-top: 0.4rem; }
+
+  .how-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .how-desc {
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+
+  /* FORMAS DE TRABAJAR JUNTAS */
+  .ways { background: var(--white); }
+
+  .ways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .way-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    background: var(--cream);
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .way-card:hover {
+    border-color: var(--accent-light);
+    background: var(--white);
+    transform: translateY(-3px);
+  }
+
+  .way-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .way-outcome {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .way-desc {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .way-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+
+  .way-link:hover { color: var(--accent); }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .stat-card:hover { border-color: var(--accent-light); transform: translateY(-2px); }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+
+  .stat-client {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 0.75rem;
+  }
+
+  /* CASES */
+  .cases { background: var(--cream); }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .case-card:hover { border-color: var(--accent-light); transform: translateY(-3px); }
+
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-name {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .case-category {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .case-intro {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    line-height: 1.45;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-tag {
+    font-size: 0.68rem;
+    background: var(--cream);
+    color: var(--ink-mid);
+    padding: 0.25rem 0.7rem;
+    border-radius: 1rem;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .metric { text-align: center; }
+
+  .metric-val {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .metric-key {
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    line-height: 1.4;
+    margin-top: 0.2rem;
+  }
+
+  /* WHY ME */
+  .why { background: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .why-card {
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .why-card:hover { border-color: var(--accent-light); }
+
+  .why-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .why-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .why-body {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--ink);
+    text-align: center;
+    padding: 5rem;
+  }
+
+  .cta-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .cta-title em { font-style: italic; color: var(--accent-light); }
+
+  .cta-sub {
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    margin-bottom: 2.5rem;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  .btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-light:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+  .cta-alt {
+    margin-top: 1.75rem;
+    font-size: 0.82rem;
+    color: var(--ink-light);
+  }
+
+  .cta-alt a {
+    color: var(--cream);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cta-alt a:hover { color: var(--accent-light); }
+
+  .availability {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-light);
+  }
+
+  .avail-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #7EC87E;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--cream-mid);
+  }
+
+  .footer-links { display: flex; gap: 1.5rem; }
+
+  .footer-links a {
+    color: var(--ink-light);
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover { color: var(--cream-mid); }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+  }
+
+  /* REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .marquee { animation: none; }
+    .avail-dot { animation: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; position: relative; }
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      background: var(--white);
+      padding: 1.5rem 1.5rem 2rem;
+      gap: 1.25rem;
+      border-bottom: 1px solid var(--cream-dark);
+      box-shadow: 0 12px 24px rgba(42,36,32,0.06);
+    }
+    .nav-links.open { display: flex; }
+
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 5rem 1.5rem 2rem; }
+    .hero-photo { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 2rem; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 190px; }
+    .portfolio-card.featured { grid-column: span 2; grid-row: span 1; }
+    .ways-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .cases-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; justify-content: center; }
+    .cta-section { padding: 3.5rem 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-card.featured { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <a href="#" class="nav-logo">Sofía Studio</a>
+    <span class="nav-timecode" id="navTimecode">00:00</span>
+  </div>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#how">Cómo trabajo</a></li>
+    <li><a href="#ways">Servicios</a></li>
+    <li><a href="#cases">Casos</a></li>
+    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#contact" class="nav-cta">Agendemos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Sofía Studio · Estrategia · Contenido · Video</p>
+    <h1 class="hero-title">Contenido que te da<br/><em>más atención, más autoridad.</em></h1>
+    <p class="hero-sub">Estrategia, storytelling y producción de video para marcas y negocios que quieren dejar de pasar desapercibidos en el feed.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Hablemos →</a>
+      <a href="#portfolio" class="btn-ghost">Ver portfolio</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      <span>Scroll</span>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <img src="sofia_about.png" style="width:85%;max-width:420px;object-fit:contain;object-position:bottom;align-self:flex-end;margin:0 auto;filter:drop-shadow(0 8px 32px rgba(139,102,82,0.10));">
+    <div class="hero-photo-tag">
+      <div class="tag-dot"></div>
+      <div class="tag-text">
+        <strong>Disponibilidad limitada</strong>
+        Actualmente con 1 lugar disponible
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Estrategia de Contenido</span><em>✦</em>
+    <span>Short-Form Video</span><em>✦</em>
+    <span>Storytelling</span><em>✦</em>
+    <span>Branding</span><em>✦</em>
+    <span>Reels & Edición</span><em>✦</em>
+    <span>Social Media</span><em>✦</em>
+    <span>Diseño Editorial</span><em>✦</em>
+    <span>Dirección Creativa</span><em>✦</em>
+    <span>Estrategia de Contenido</span><em>✦</em>
+    <span>Short-Form Video</span><em>✦</em>
+    <span>Storytelling</span><em>✦</em>
+    <span>Branding</span><em>✦</em>
+    <span>Reels & Edición</span><em>✦</em>
+    <span>Social Media</span><em>✦</em>
+    <span>Diseño Editorial</span><em>✦</em>
+    <span>Dirección Creativa</span><em>✦</em>
+  </div>
+</div>
+
+<!-- PORTFOLIO — PROTAGONISTA -->
+<section class="portfolio" id="portfolio">
+  <p class="section-label">Portfolio</p>
+  <h2 class="section-title">Esto es lo que hago.<br/><em>Mejor te lo muestro.</em></h2>
+  <p class="section-sub">Reels, carruseles y campañas reales para marcas de deporte, wellness y lifestyle.</p>
+  <div class="portfolio-grid" id="portfolio-grid">
+    <!-- Se completa automáticamente desde PORTFOLIO_ITEMS, al final del archivo -->
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="about" id="about">
+  <div class="about-photo">
+    <img src="sofia_about.png" style="width:100%;max-width:460px;object-fit:contain;display:block;margin:0 auto;">
+  </div>
+  <div class="about-content">
+    <p class="section-label">Sobre mí</p>
+    <h2 class="section-title">Hola, soy Sofía —<br/><em>construyo Sofía Studio.</em></h2>
+    <p class="about-quote">"Sin agencias, sin intermediarios."</p>
+    <p class="about-body">
+      Dirijo Sofía Studio desde Santa Fe, Argentina: un estudio donde mezclo estrategia, storytelling y producción de video para marcas y negocios que quieren crecer con contenido que realmente conecta.<br/><br/>
+      El problema que más resuelvo: marcas con buen producto pero contenido que no cuenta nada — publican por publicar, sin sistema ni dirección. Ahí entro yo: pienso, produzco y mido cada pieza con intención.
+    </p>
+    <div class="about-chips">
+      <span class="chip">Estrategia</span>
+      <span class="chip">Storytelling</span>
+      <span class="chip">Short-Form Video</span>
+      <span class="chip">Deporte & Wellness</span>
+      <span class="chip">Santa Fe, ARG</span>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJO -->
+<section class="how" id="how">
+  <p class="section-label">Cómo trabajo</p>
+  <h2 class="section-title">Un sistema,<br/><em>no una improvisación.</em></h2>
+  <p class="section-sub">Cuatro pasos. Siempre los mismos, adaptados a cada marca.</p>
+  <div class="how-flow">
+    <div class="how-step">
+      <div class="how-num">01</div>
+      <div class="how-content">
+        <div class="how-title">Descubrimiento</div>
+        <p class="how-desc">Entiendo tu marca, tu audiencia y dónde estás parada hoy. Sin plantillas — cada estrategia arranca de tu contexto real.</p>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">02</div>
+      <div class="how-content">
+        <div class="how-title">Estrategia</div>
+        <p class="how-desc">Defino pilares de contenido, tono de voz y un plan concreto. Una dirección clara, no una lista de ideas sueltas.</p>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">03</div>
+      <div class="how-content">
+        <div class="how-title">Producción</div>
+        <p class="how-desc">Grabo, edito y diseño cada pieza — reels, carruseles, stories — con intención. Cada corte y cada frase tienen un propósito.</p>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">04</div>
+      <div class="how-content">
+        <div class="how-title">Optimización</div>
+        <p class="how-desc">Reviso métricas reales cada mes y ajusto lo que no funciona. La estrategia se mueve con los datos, no se queda fija.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAS DE TRABAJAR JUNTAS -->
+<section class="ways" id="ways">
+  <p class="section-label">Formas de trabajar juntas</p>
+  <h2 class="section-title">No vendo reels.<br/><em>Vendo atención, autoridad y oportunidades.</em></h2>
+  <p class="section-sub">Elegí la forma de trabajar que tu marca necesita hoy — sin paquetes cerrados ni tareas sueltas.</p>
+  <div class="ways-grid">
+    <div class="way-card">
+      <h3 class="way-title">Gestión estratégica continua</h3>
+      <p class="way-outcome">Una marca que crece todos los meses — no solo cuando alguien se acuerda de publicar.</p>
+      <p class="way-desc">Contenido, comunidad y pauta trabajando juntos, con una dirección clara y revisión mensual de resultados.</p>
+      <a href="#contact" class="way-link">Conversemos →</a>
+    </div>
+    <div class="way-card">
+      <h3 class="way-title">Lanzamiento o reposicionamiento</h3>
+      <p class="way-outcome">Entrás a un mercado nuevo con autoridad desde el primer posteo.</p>
+      <p class="way-desc">Identidad de contenido, tono de voz y ejecución de los primeros meses — para marcas que arrancan o se reinventan.</p>
+      <a href="#contact" class="way-link">Conversemos →</a>
+    </div>
+    <div class="way-card">
+      <h3 class="way-title">Diagnóstico estratégico</h3>
+      <p class="way-outcome">En una semana, entendés exactamente por qué tu contenido no está funcionando.</p>
+      <p class="way-desc">Auditoría completa + plan de acción concreto. Ideal si ya tenés equipo propio y necesitás dirección externa.</p>
+      <a href="#contact" class="way-link">Conversemos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="results" style="background:var(--cream);">
+  <p class="section-label">Resultados</p>
+  <h2 class="section-title">Números que<br/><em>hablan solos.</em></h2>
+  <div class="stats-grid" id="stats-grid">
+    <!-- Se completa automáticamente desde STATS, al final del archivo -->
+  </div>
+</section>
+
+<!-- CASOS DE ESTUDIO -->
+<section class="cases" id="cases">
+  <p class="section-label">Casos de estudio</p>
+  <h2 class="section-title">Clientes reales,<br/><em>crecimiento real.</em></h2>
+  <div class="cases-grid" id="cases-grid">
+    <!-- Se completa automáticamente desde CASE_STUDIES, al final del archivo -->
+  </div>
+</section>
+
+<!-- POR QUÉ SOFÍA STUDIO -->
+<section class="why" id="why">
+  <p class="section-label">Por qué Sofía Studio</p>
+  <h2 class="section-title">Más que<br/><em>posteos bonitos.</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Pocos clientes, máximo foco</div>
+      <p class="why-body">Trabajo con un máximo de 3 marcas a la vez. Tu cuenta no es un número — es mi prioridad. Cada posteo tiene intención, cada métrica tiene seguimiento.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Resultados que se miden</div>
+      <p class="why-body">Nada de vistas infladas o seguidores comprados. Crecimiento real y sostenible — con o sin pauta. Podés ver los números antes de contratarme.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Contenido desde adentro</div>
+      <p class="why-body">Me especializo en nichos de deporte, wellness y lifestyle. Conozco el lenguaje, la audiencia y qué tipo de contenido genera conversión real.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div class="why-title">Comunicación directa</div>
+      <p class="why-body">Sin agencias, sin intermediarios. Hablás directo con quien hace el trabajo. Respuesta rápida, decisiones ágiles, transparencia total en el proceso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <p class="cta-eyebrow">Disponibilidad limitada</p>
+  <h2 class="cta-title">¿Tu marca merece<br/><em>más atención?</em></h2>
+  <p class="cta-sub">Sin paquetes cerrados ni precios de catálogo — cada propuesta se arma según tu marca y tu momento. Trabajo con un máximo de 3 clientes a la vez.</p>
+  <a href="https://wa.me/5493425973663?text=Hola%20Sof%C3%ADa%2C%20quiero%20agendar%20una%20llamada%20para%20hablar%20de%20mi%20marca." class="btn-light">Agendar una llamada →</a>
+  <p class="cta-alt">¿Preferís mail o Instagram? Escribime a <a href="mailto:cmsofiaiglesias@gmail.com">cmsofiaiglesias@gmail.com</a> o en <a href="https://instagram.com/sofiastudio.sm" target="_blank" rel="noopener">@sofiastudio.sm</a></p>
+  <div class="availability">
+    <div class="avail-dot"></div>
+    <span>Actualmente con 1 lugar disponible</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sofía Studio</div>
+  <div class="footer-links">
+    <a href="https://instagram.com/sofiastudio.sm" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://linktr.ee/sofiastudio.sm" target="_blank" rel="noopener">Linktree</a>
+    <a href="mailto:cmsofiaiglesias@gmail.com">Email</a>
+  </div>
+  <div class="footer-copy">Santa Fe, Argentina · 2026</div>
+</footer>
+
+<script>
+/* ============================================================
+   👋 SOFÍA — ACÁ SE AGREGA CONTENIDO NUEVO.
+   No hace falta tocar nada del HTML de arriba. Copiá un bloque
+   { ... }, pegalo antes del corchete de cierre "]", completá
+   los campos y guardá. El sitio se arma solo.
+   ============================================================ */
+
+// --- PORTFOLIO: reels, carruseles, mini series, lo que sea ---
+// category : el tipo de pieza ('Reel', 'Carrusel', 'Mini serie', 'Institucional', 'Case Study'...)
+// featured : true en UNO SOLO (ese va grande, arriba a la izquierda)
+// thumb    : ruta a una imagen/miniatura subida al repo (ej: 'thumbs/regatas-1.jpg').
+//            Si todavía no la tenés, dejalo en null y se muestra un placeholder prolijo.
+// link     : opcional. Si querés que la tarjeta lleve a un link (Instagram, otra sección), ponelo acá.
+const PORTFOLIO_ITEMS = [
+  { category: 'Reel', title: 'Recaudación de fondos — Regatas', desc: 'Campaña solidaria institucional, de la idea al video final.', featured: true, thumb: null, link: null },
+  { category: 'Carrusel', title: 'Mudanza de Kairós Pilates', desc: 'Teaser + carrusel de lanzamiento para la nueva sede.', featured: false, thumb: null, link: null },
+  { category: 'Mini serie', title: 'Cruce de deportes — Regatas', desc: 'Serie de contenido cruzado entre disciplinas del club.', featured: false, thumb: null, link: null },
+  { category: 'Institucional', title: 'Convocatoria a la selección', desc: 'Cobertura de un jugador de Regatas convocado a la selección nacional.', featured: false, thumb: null, link: null },
+  { category: 'Reel', title: 'Edición short-form', desc: 'Reel en producción — próximamente.', featured: false, thumb: null, link: null },
+  { category: 'Case Study', title: 'Kairós — estrategia completa', desc: 'Ver el caso completo de crecimiento ↓', featured: false, thumb: null, link: '#cases' },
+];
+
+// --- CASOS DE ESTUDIO ---
+// intro    : una frase tipo "problema → resultado". Ahí va la persuasión real.
+// metrics  : hasta 4 números destacados del caso.
+const CASE_STUDIES = [
+  {
+    client: 'Club Regatas Santa Fe',
+    category: 'Deporte · Institución · +100 años de historia',
+    intro: 'Institución centenaria sin estrategia de contenido activa → hoy referencia digital del deporte en Santa Fe.',
+    tags: ['Instagram', 'Reels', 'Diseño editorial', 'Copywriting', 'Identidad visual'],
+    metrics: [
+      { val: '170k', key: 'Visualiz. 30 días' },
+      { val: '35k', key: 'Mejor reel' },
+      { val: '+177%', key: 'Espectadores' },
+      { val: '+95%', key: 'Actividad perfil' },
+    ],
+  },
+  {
+    client: 'Kairós Pilates Reformer',
+    category: 'Wellness · Studio · Santa Fe',
+    intro: 'Studio en plena mudanza de sede → comunidad activa y alcance en crecimiento sostenido durante la transición.',
+    tags: ['Instagram', 'Reels', 'Stories', 'Estrategia de contenido'],
+    metrics: [
+      { val: '7.2k', key: 'Visualiz. 30 días' },
+      { val: '859', key: 'Mejor reel' },
+      { val: '+67%', key: 'Alcance' },
+      { val: '71%', key: 'Audiencia activa' },
+    ],
+  },
+];
+
+// --- RESULTADOS (los 4 números destacados) ---
+const STATS = [
+  { num: '170k', label: 'Visualizaciones en 30 días', client: 'Club Regatas · mayo 2026' },
+  { num: '35k', label: 'Mejor reel del mes', client: 'Club Regatas · mayo 2026' },
+  { num: '+67%', label: 'Crecimiento de alcance', client: 'Kairós Pilates · mayo 2026' },
+  { num: '+95%', label: 'Actividad del perfil', client: 'Club Regatas · mayo 2026' },
+];
+
+function renderPortfolio() {
+  var grid = document.getElementById('portfolio-grid');
+  if (!grid) return;
+  grid.innerHTML = PORTFOLIO_ITEMS.map(function (item) {
+    var cls = 'portfolio-card' + (item.featured ? ' featured' : '');
+    var frame = '<div class="portfolio-frame">' +
+      (item.thumb
+        ? '<img src="' + item.thumb + '" alt="' + item.title + '" loading="lazy">'
+        : '<span class="portfolio-play">▶</span>') +
+      '</div>';
+    var info = '<div class="portfolio-info">' +
+      '<span class="case-tag">' + item.category + '</span>' +
+      '<h3 class="portfolio-title">' + item.title + '</h3>' +
+      '<p class="portfolio-desc">' + item.desc + '</p>' +
+      '</div>';
+    var tag = item.link ? 'a' : 'div';
+    var hrefAttr = item.link ? ' href="' + item.link + '"' : '';
+    return '<' + tag + ' class="' + cls + '"' + hrefAttr + '>' + frame + info + '</' + tag + '>';
+  }).join('');
+}
+
+function renderStats() {
+  var grid = document.getElementById('stats-grid');
+  if (!grid) return;
+  grid.innerHTML = STATS.map(function (s) {
+    return '<div class="stat-card">' +
+      '<div class="stat-num">' + s.num + '</div>' +
+      '<div class="stat-label">' + s.label + '</div>' +
+      '<div class="stat-client">' + s.client + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+function renderCases() {
+  var grid = document.getElementById('cases-grid');
+  if (!grid) return;
+  grid.innerHTML = CASE_STUDIES.map(function (c) {
+    var tags = c.tags.map(function (t) { return '<span class="case-tag">' + t + '</span>'; }).join('');
+    var metrics = c.metrics.map(function (m) {
+      return '<div class="metric"><div class="metric-val">' + m.val + '</div><div class="metric-key">' + m.key + '</div></div>';
+    }).join('');
+    return '<div class="case-card">' +
+      '<div class="case-header"><div>' +
+      '<div class="case-name">' + c.client + '</div>' +
+      '<div class="case-category">' + c.category + '</div>' +
+      '</div></div>' +
+      '<p class="case-intro">' + c.intro + '</p>' +
+      '<div class="case-tags">' + tags + '</div>' +
+      '<div class="case-metrics">' + metrics + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+function initNav() {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', function () {
+    var isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      links.classList.remove('open');
+      toggle.classList.remove('is-open');
+    });
+  });
+}
+
+// Barra de progreso + timecode — el guiño sutil al mundo de la edición de video
+function initScrollProgress() {
+  var bar = document.querySelector('.scroll-progress');
+  var tc = document.getElementById('navTimecode');
+  var TOTAL_SECONDS = 150;
+  function update() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    if (bar) bar.style.width = (progress * 100) + '%';
+    if (tc) {
+      var secs = Math.round(progress * TOTAL_SECONDS);
+      var mm = String(Math.floor(secs / 60)).padStart(2, '0');
+      var ss = String(secs % 60).padStart(2, '0');
+      tc.textContent = mm + ':' + ss;
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  renderPortfolio();
+  renderStats();
+  renderCases();
+  initNav();
+  initScrollProgress();
+});
+</script>
+
+</body>
+</html>
